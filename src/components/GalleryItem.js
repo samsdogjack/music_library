@@ -9,7 +9,7 @@ function GalleryItem(props) {
         'border': '1px solid black',
         'margin': '2px'
     }
-    
+
     const detailStyle = {
         'width': '80vw',
         'height': '20vh',
@@ -20,7 +20,7 @@ function GalleryItem(props) {
         'backgroundSize': 'cover',
         'color': 'yellow'
     }
-    
+
 
     const simpleView = () => {
         return (
@@ -30,8 +30,8 @@ function GalleryItem(props) {
             </div>
         )
     }
-//orginal line without "detailStyle"
-//<div style={}>
+    //orginal line without "detailStyle"
+    //<div style={}>
     const detailView = () => {
         return (
             <div style={detailStyle}>
@@ -45,11 +45,10 @@ function GalleryItem(props) {
 
     return (
         <div onClick={() => setView(!view)}
-        style={{'display': 'inline-block'}}>
-        
+            style={{ 'display': 'inline-block' }}>
+
             {/* This simple ternary shows the simple view when 'view' is false! */}
             {view ? detailView() : simpleView()}
-
         </div>
     )
 
