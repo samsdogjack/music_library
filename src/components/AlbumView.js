@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {useParams, useHistory} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 
 const AlbumView = (props) => {
     const { id } = useParams()
@@ -25,23 +25,21 @@ const AlbumView = (props) => {
             </div>
         )
     })
-    
+
     const navButtons = () => {
-        return (
+        return(
             <div>
-                <button onClick={() => {history.push('/')}}>Home</button> | <button onClick={() => history.goBack()}>Back</button>
+                <button onClick={() => navigate(-1)}>Back</button>
+                |
+                <button onClick={() => navigate('/')}>Home</button>
             </div>
         )
     }
 
-    const allAlbums =   albumData.filter(entity => entity.kind === 'song')
-                        .map((album, i) => { return (<div key={i}>{album.trackName}</div>)})
-
     return (
         <div>
-            {albumData.length > 0 ? <h2>{albumData[0].collectionName}</h2> : <p>loading...</p>}
             {navButtons()}
-            {allAlbums}
+            {renderSongs}
         </div>
     )
 }

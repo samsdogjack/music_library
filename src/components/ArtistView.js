@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const ArtistView = () => {
   const { id } = useParams();
